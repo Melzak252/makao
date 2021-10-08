@@ -28,9 +28,6 @@ class Deck(Hand):
     def __iter__(self):
         return self._hand
 
-    def __len__(self):
-        return len(self._hand)
-
     def __getitem__(self, item):
         return self._hand[item]
 

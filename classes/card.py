@@ -6,7 +6,7 @@ class Card:
     def __init__(self, rank, colour):
         assert 1 < rank < 15
 
-        assert 0 < colour < 4
+        assert 0 < colour < 5
 
         self.rank = rank
         self.colour = colour
@@ -19,13 +19,13 @@ class Card:
         return f"[{RANKS_NAMES[self.rank]} of {COLOURS_NAMES[self.colour]}s]"
 
     def __eq__(self, other):
-        if self.rank == other.rank:
-            return True
-
-        if ACTIVITY[self.rank] == ACTIVITY[other.rank] and self.colour == other.colour:
+        if self.rank == other.rank or self.colour == other.colour:
             return True
 
         return False
+
+    def __bool__(self):
+        return True
 
 
 if __name__ == '__main__':
