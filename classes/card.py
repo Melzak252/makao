@@ -1,14 +1,18 @@
-from utils.values import COLOURS_REPR, RANKS_REPR, COLOURS_NAMES, RANKS_NAMES, ACTIVITY
+from classes.utils.values import COLOURS_REPR, RANKS_REPR, COLOURS_NAMES, RANKS_NAMES, ACTIVITY
 
 
 class Card:
 
     def __init__(self, rank, colour):
+        assert 1 < rank < 15
+
+        assert 0 < colour < 4
+
         self.rank = rank
         self.colour = colour
 
     def __repr__(self):
-        return f"[{RANKS_REPR[self.rank]} {COLOURS_REPR[self.colour]}]"
+        return f"[{RANKS_REPR[self.rank]}{COLOURS_REPR[self.colour]}]"
 
     @property
     def name(self):
@@ -29,5 +33,5 @@ if __name__ == '__main__':
     card2 = Card(5, 2)
     card3 = Card(6, 2)
 
-    print(card1 == card2)
+    print(card1.name)
     print(card2 == card3)
